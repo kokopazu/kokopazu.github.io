@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(python:*)",
-      "WebFetch(domain:studiodocs.onstove.com)"
+      "WebFetch(domain:studiodocs.onstove.com)",
+      "Bash(start:*)"
     ]
   }
 }
