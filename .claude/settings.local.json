@@ -3,7 +3,10 @@
     "allow": [
       "Bash(python:*)",
       "WebFetch(domain:studiodocs.onstove.com)",
-      "Bash(start:*)"
+      "Bash(start:*)",
+      "Bash(identify \"/c/Users/KEONKO/Claude Cowork/00_KOKOPAZU-STUDIO/kokopazu.github.io/logo.png\")",
+      "Bash(magick \"/c/Users/KEONKO/Claude Cowork/00_KOKOPAZU-STUDIO/kokopazu.github.io/logo.png\" -resize 288x288 -quality 85 -strip \"/c/Users/KEONKO/Claude Cowork/00_KOKOPAZU-STUDIO/kokopazu.github.io/logo.png\")",
+      "WebSearch"
     ]
   }
 }
