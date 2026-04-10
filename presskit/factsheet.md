@@ -19,12 +19,14 @@
 
 Defeat monsters, overcome obstacles, and save the princess.
 
-An action RPG set in a fantasy world where you fight with ranged magic and conquer diverse platforming challenges. A heartfelt indie game crafted entirely by a solo developer.
+An action RPG set in a fantasy world where you fight only with ranged magic and conquer diverse platforming challenges between chapters. No complex equipment crafting or build trees — just pick up random loot and keep moving forward.
 
 ## Key Features
 
 - Ranged magic combat system — No Swords. Only Spells.
-- Diverse platform challenges: cliff climbing, collapsing bridges, dragon flight, and more
-- Fantasy world with a princess rescue storyline
-- 38+ unique monsters
-- 7 language support for global players
+- 4 spell types: Projectile, AOE, Summon, Shield — collect duplicate cards to power up automatically
+- 9 chapters, 25 stages — each chapter connected by unique cliff platforming sections
+- No equipment crafting, no build trees — random stat items and skill card drops keep the action flowing
+- 38+ unique monsters across grass, volcano, ice, and desert themed worlds
+- Fantasy storyline: rescue Princess Torosso from the cursed prison island
+- 7 language support (KO, EN, JA, ZH, ES, ID, PT)
