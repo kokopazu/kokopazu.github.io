@@ -4,23 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Save Princess Torosso - Presskit | Kokopazu Studio</title>
-  <meta name="description" content="Save Princess Torosso 프레스킷 - Kokopazu Studio의 액션 & 플랫폼 RPG">
+  <meta name="description" content="Save Princess Torosso presskit. A magic action RPG and platform game from Kokopazu Studio, coming to Steam in July 2026.">
+  <meta property="og:title" content="Save Princess Torosso - Presskit">
+  <meta property="og:description" content="A 2 to 3 hour magic RPG & platform game focused on play feel, not gear builds or skill tree homework.">
+  <meta property="og:image" content="https://www.kokopazu.com/assets/og-image.jpg">
   <style>
     :root {
-      --primary: #00BFA5;
-      --primary-dark: #00897B;
-      --bg: #0D1117;
-      --bg-card: #161B22;
-      --text: #E6EDF3;
-      --text-muted: #8B949E;
-      --border: #30363D;
-      --accent: #FFD700;
+      --primary: #e8bd63;
+      --primary-dark: #bd8f3f;
+      --bg: #07090d;
+      --bg-soft: #0d1118;
+      --bg-card: #131821;
+      --text: #f4efe3;
+      --text-muted: #a9a093;
+      --border: #30343d;
+      --line: rgba(232, 189, 99, 0.42);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.7;
@@ -29,380 +35,563 @@
     a { color: var(--primary); text-decoration: none; }
     a:hover { color: var(--primary-dark); text-decoration: underline; }
 
-    /* Header */
     .header {
-      text-align: center;
-      padding: 60px 20px 40px;
+      position: relative;
+      min-height: 520px;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
       border-bottom: 1px solid var(--border);
     }
-    .header img.studio-logo {
-      height: 40px;
-      margin-bottom: 16px;
-      filter: brightness(1.1);
-    }
-    .header h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .header .tagline {
-      font-size: 1.2rem;
-      color: var(--text-muted);
+
+    .header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(7, 9, 13, 0.9), rgba(7, 9, 13, 0.52) 48%, rgba(7, 9, 13, 0.18)),
+        linear-gradient(0deg, rgba(7, 9, 13, 0.98), rgba(7, 9, 13, 0) 45%),
+        url("../assets/hero-keyart.jpg") center right / cover no-repeat;
+      transform: scale(1.01);
     }
 
-    /* Nav */
+    .header-content {
+      position: relative;
+      max-width: 1120px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 48px 24px 56px;
+    }
+
+    .studio-logo {
+      height: 42px;
+      margin-bottom: 18px;
+      filter: brightness(1.1);
+    }
+
+    .eyebrow {
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      max-width: 760px;
+      font-size: clamp(2.7rem, 7vw, 5.8rem);
+      line-height: 0.95;
+      letter-spacing: 0;
+      margin-bottom: 18px;
+    }
+
+    .tagline {
+      max-width: 720px;
+      color: var(--text);
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      line-height: 1.45;
+    }
+
     .nav {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: var(--bg);
+      background: rgba(7, 9, 13, 0.92);
       border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
       padding: 12px 20px;
       text-align: center;
     }
+
     .nav a {
       display: inline-block;
-      margin: 0 16px;
-      font-size: 0.9rem;
+      margin: 0 14px;
+      font-size: 0.86rem;
       color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
+      font-weight: 700;
     }
+
     .nav a:hover { color: var(--primary); text-decoration: none; }
 
-    /* Container */
     .container {
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
-    /* Section */
     section {
-      padding: 60px 0;
+      padding: 68px 0;
       border-bottom: 1px solid var(--border);
     }
+
     section:last-child { border-bottom: none; }
 
     h2 {
-      font-size: 1.8rem;
-      margin-bottom: 32px;
-      color: var(--primary);
-    }
-    h3 {
-      font-size: 1.2rem;
-      margin-bottom: 12px;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      line-height: 1.15;
+      margin-bottom: 30px;
       color: var(--text);
     }
 
-    /* Factsheet grid */
-    .factsheet-grid {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 48px;
-    }
-    .factsheet-table { width: 100%; }
-    .factsheet-table tr { border-bottom: 1px solid var(--border); }
-    .factsheet-table td {
-      padding: 10px 0;
-      vertical-align: top;
-    }
-    .factsheet-table td:first-child {
-      font-weight: 600;
-      color: var(--text-muted);
-      white-space: nowrap;
-      padding-right: 20px;
-      width: 100px;
+    h2::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      margin-top: 14px;
+      background: var(--line);
     }
 
-    /* Description */
-    .description p { margin-bottom: 16px; }
-    .features {
-      list-style: none;
-      padding: 0;
-    }
-    .features li {
-      padding: 6px 0;
-      padding-left: 20px;
-      position: relative;
-    }
-    .features li::before {
-      content: "\2726";
-      position: absolute;
-      left: 0;
+    h3 {
+      font-size: 1.16rem;
+      margin-bottom: 12px;
       color: var(--primary);
     }
 
-    /* Gallery */
-    .gallery-section h3 { margin-top: 32px; }
-    .gallery-section h3:first-child { margin-top: 0; }
+    .factsheet-grid {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.4fr);
+      gap: 48px;
+      align-items: start;
+    }
+
+    .factsheet-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+    }
+
+    .factsheet-table tr { border-bottom: 1px solid var(--border); }
+    .factsheet-table tr:last-child { border-bottom: none; }
+
+    .factsheet-table td {
+      padding: 12px 14px;
+      vertical-align: top;
+    }
+
+    .factsheet-table td:first-child {
+      width: 104px;
+      color: var(--text-muted);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .summary p {
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .features {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .features li {
+      position: relative;
+      padding-left: 22px;
+      color: var(--text);
+    }
+
+    .features li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.78em;
+      width: 8px;
+      height: 8px;
+      background: var(--primary);
+      transform: rotate(45deg);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 18px;
+      min-height: 150px;
+    }
+
+    .info-card strong {
+      display: block;
+      color: var(--primary);
+      margin-bottom: 8px;
+      font-size: 1.04rem;
+    }
+
+    .info-card p { color: var(--text-muted); }
+
+    .gallery-section { margin-top: 42px; }
+    .gallery-section:first-child { margin-top: 0; }
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 16px;
       margin-top: 16px;
     }
-    .gallery img, .gallery video {
-      width: 100%;
-      border-radius: 8px;
+
+    .gallery figure,
+    .capsule-gallery figure {
+      background: var(--bg-card);
       border: 1px solid var(--border);
-      cursor: pointer;
-      transition: transform 0.2s;
+      overflow: hidden;
     }
-    .gallery img:hover { transform: scale(1.02); }
+
+    .gallery img,
+    .capsule-gallery img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .gallery img:hover,
+    .capsule-gallery img:hover { transform: scale(1.02); }
+
+    figcaption {
+      min-height: 48px;
+      padding: 12px 14px;
+      color: var(--text);
+      font-weight: 700;
+      background: #0a0a0b;
+    }
 
     .capsule-gallery {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 16px;
-      flex-wrap: wrap;
       margin-top: 16px;
     }
-    .capsule-gallery img {
-      border-radius: 8px;
-      border: 1px solid var(--border);
-    }
-    .capsule-gallery .capsule-main { max-width: 500px; width: 100%; }
-    .capsule-gallery .capsule-small { max-width: 280px; width: 100%; }
 
-    /* Logos */
+    .capsule-gallery figure:first-child {
+      grid-column: 1 / -1;
+    }
+
     .logos-grid {
       display: flex;
-      gap: 32px;
+      gap: 20px;
       flex-wrap: wrap;
-      align-items: center;
+      align-items: stretch;
       margin-top: 16px;
     }
+
     .logo-item {
+      display: grid;
+      place-items: center;
+      min-width: 220px;
+      min-height: 130px;
       background: #fff;
       padding: 24px;
-      border-radius: 12px;
+      border-radius: 8px;
       text-align: center;
     }
-    .logo-item img { max-height: 60px; }
+
+    .logo-item img { max-height: 62px; max-width: 180px; }
     .logo-item.dark {
       background: var(--bg-card);
       border: 1px solid var(--border);
     }
+
     .logo-item p {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
       margin-top: 8px;
     }
 
-    /* Press Release */
     .press-release {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 40px;
-      max-width: 800px;
-    }
-    .press-release h3 {
-      font-size: 1.5rem;
-      margin-bottom: 8px;
-    }
-    .press-release .date {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-bottom: 24px;
-    }
-    .press-release p { margin-bottom: 16px; }
-    .press-release .quote {
-      border-left: 3px solid var(--primary);
-      padding-left: 20px;
-      font-style: italic;
-      color: var(--text-muted);
-      margin: 24px 0;
+      padding: 34px;
+      max-width: 860px;
     }
 
-    /* Contact */
+    .press-release h3 {
+      color: var(--text);
+      font-size: clamp(1.35rem, 3vw, 1.9rem);
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .press-release .date {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      margin-bottom: 24px;
+    }
+
+    .press-release p { margin-bottom: 16px; }
+
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 16px;
     }
+
     .contact-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 20px;
+      padding: 18px;
     }
+
     .contact-card .label {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
       margin-bottom: 6px;
+      font-weight: 800;
     }
 
-    /* Download button */
-    .download-btn {
-      display: inline-block;
-      background: var(--primary);
-      color: #fff;
-      padding: 12px 28px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 1rem;
-      margin-top: 16px;
-      transition: background 0.2s;
-    }
-    .download-btn:hover {
-      background: var(--primary-dark);
-      text-decoration: none;
-      color: #fff;
-    }
-
-    /* Lightbox */
     .lightbox {
       display: none;
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.9);
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
       z-index: 1000;
       justify-content: center;
       align-items: center;
       cursor: pointer;
-    }
-    .lightbox.active { display: flex; }
-    .lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 8px;
+      padding: 24px;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .header h1 { font-size: 2rem; }
-      .factsheet-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
+    .lightbox.active { display: flex; }
+
+    .lightbox img {
+      max-width: 94vw;
+      max-height: 92vh;
+      border: 1px solid var(--border);
+    }
+
+    footer {
+      text-align: center;
+      padding: 42px 20px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 820px) {
+      .header { min-height: 500px; }
+      .header::before {
+        background:
+          linear-gradient(90deg, rgba(7, 9, 13, 0.9), rgba(7, 9, 13, 0.45)),
+          linear-gradient(0deg, rgba(7, 9, 13, 0.98), rgba(7, 9, 13, 0) 50%),
+          url("../assets/hero-keyart.jpg") center right / cover no-repeat;
       }
-      .gallery {
+      .factsheet-grid,
+      .info-grid,
+      .capsule-gallery {
         grid-template-columns: 1fr;
       }
-      .nav a { margin: 0 8px; font-size: 0.8rem; }
+      .capsule-gallery figure:first-child {
+        grid-column: auto;
+      }
+      .nav {
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+      .nav a { margin: 0 9px; }
       .press-release { padding: 24px; }
     }
   </style>
 </head>
 <body>
 
-<!-- Header -->
-<div class="header">
-  <img src="images/logo_kokopazu.png" alt="Kokopazu Studio" class="studio-logo">
-  <h1>Save Princess Torosso</h1>
-  <p class="tagline">No Swords. Only Spells. &mdash; Action &amp; Platform RPG</p>
-</div>
+<header class="header">
+  <div class="header-content">
+    <img src="images/logo_kokopazu.png" alt="Kokopazu Studio" class="studio-logo">
+    <p class="eyebrow">Presskit</p>
+    <h1>Save Princess Torosso</h1>
+    <p class="tagline">No gear builds. No skill tree homework. A magic RPG &amp; platform game where combat and platforming flow continuously from start to finish.</p>
+  </div>
+</header>
 
-<!-- Navigation -->
 <nav class="nav">
   <a href="#factsheet">Factsheet</a>
   <a href="#description">Description</a>
-  <a href="#media">Screenshots &amp; GIFs</a>
+  <a href="#media">Images</a>
   <a href="#logos">Logos</a>
   <a href="#press-release">Press Release</a>
   <a href="#contact">Contact</a>
 </nav>
 
-<div class="container">
+<main class="container">
 
-  <!-- Factsheet + Description -->
   <section id="factsheet">
     <h2>Factsheet</h2>
     <div class="factsheet-grid">
-      <div>
-        <table class="factsheet-table">
-          <tr><td>Developer</td><td>Kokopazu Studio<br><small style="color:var(--text-muted)">(1-person indie studio, South Korea)</small></td></tr>
-          <tr><td>Genre</td><td>Action &amp; Platform RPG</td></tr>
-          <tr><td>Platform</td><td>STOVE, Steam (planned)</td></tr>
-          <tr><td>Release</td><td>2026 H1<br><small style="color:var(--text-muted)">STOVE first, Steam second</small></td></tr>
-          <tr><td>Price</td><td>&#8361;15,000 / $13.99</td></tr>
-          <tr><td>Playtime</td><td>2&ndash;3 hours</td></tr>
-          <tr><td>Languages</td><td>Korean, English, Japanese, Chinese, Spanish, Indonesian, Portuguese (7)</td></tr>
-          <tr><td>Steam</td><td><a href="https://store.steampowered.com/app/4603700" target="_blank">App ID: 4603700</a></td></tr>
-        </table>
-      </div>
-      <div id="description">
+      <table class="factsheet-table">
+        <tr><td>Developer</td><td>Kokopazu Studio<br><small style="color:var(--text-muted)">1-person indie studio, South Korea</small></td></tr>
+        <tr><td>Genre</td><td>Magic Action RPG &amp; Platform Game</td></tr>
+        <tr><td>Platform</td><td>PC Windows / Steam</td></tr>
+        <tr><td>Release</td><td>July 2026 (planned)</td></tr>
+        <tr><td>Discount</td><td>Launch-week discount planned</td></tr>
+        <tr><td>Price</td><td>TBA</td></tr>
+        <tr><td>Playtime</td><td>2-3 hours</td></tr>
+        <tr><td>Languages</td><td>11 languages supported</td></tr>
+        <tr><td>Steam</td><td><a href="https://store.steampowered.com/app/4603700/Save_Princess_Torosso/" target="_blank" rel="noopener">store.steampowered.com/app/4603700</a></td></tr>
+        <tr><td>Email</td><td><a href="mailto:contact@kokopazu.com">contact@kokopazu.com</a><br><a href="mailto:kokopazustudio@gmail.com">kokopazustudio@gmail.com</a></td></tr>
+      </table>
+
+      <div id="description" class="summary">
         <h3>About the Game</h3>
-        <p>Defeat monsters, overcome obstacles, and save the princess.</p>
-        <p>An action RPG set in a fantasy world where you fight only with ranged magic and conquer diverse platforming challenges between chapters. No complex equipment crafting or build trees &mdash; just pick up random loot and keep moving forward.</p>
+        <p><strong>Want to rescue a princess?</strong></p>
+        <p><em>Save Princess Torosso</em> is a game where you become a light mage to overcome the obstacles ahead and rescue the princess trapped on a cursed prison island.</p>
+        <p>Without worrying about gear builds, skill trees, or build research, you focus on casting and pushing through. The game is built as a 2-3 hour complete RPG adventure for players who want a clear goal and continuous play.</p>
 
         <h3 style="margin-top:24px">Key Features</h3>
         <ul class="features">
-          <li>Ranged magic combat system &mdash; No Swords. Only Spells.</li>
-          <li>4 spell types: Projectile, AOE, Summon, Shield &mdash; collect duplicate cards to power up automatically</li>
-          <li>9 chapters, 25 stages &mdash; each chapter connected by unique cliff platforming sections</li>
-          <li>No equipment crafting, no build trees &mdash; random stat items and skill card drops keep the action flowing</li>
-          <li>38+ unique monsters across grass, volcano, ice, and desert themed worlds</li>
-          <li>Fantasy storyline: rescue Princess Torosso from the cursed prison island</li>
-          <li>7 language support (KO, EN, JA, ZH, ES, ID, PT)</li>
+          <li>Magic-only combat with no melee weapons.</li>
+          <li>Projectile, AOE, Summon, and Shield spell roles used during combat flow.</li>
+          <li>Skill cards grant new abilities or strengthen existing magic during battle.</li>
+          <li>Between combat stages, players break through platforming routes and movement challenges.</li>
+          <li>Horse riding, dragon flight, ladders, falling barrels, rolling cannonballs, slippery stairs, and other obstacle sections change the rhythm between fights.</li>
+          <li>Clear combat objectives open the path to the next area once the target enemy count is defeated.</li>
+          <li>Coming to Steam in July 2026 with a launch-week discount planned.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- Screenshots & GIFs -->
+  <section>
+    <h2>Game Pillars</h2>
+    <div class="info-grid">
+      <article class="info-card">
+        <strong>공략보다 플레이 감각에 집중하는 마법 액션 RPG.</strong>
+        <p>Save Princess Torosso reduces equipment, skill tree, and build-study friction so the player can focus on casting and pushing through.</p>
+      </article>
+      <article class="info-card">
+        <strong>검 없이, 마법만으로 밀고 나갑니다.</strong>
+        <p>The hero does not use melee weapons. Projectiles, area magic, summons, and shields are combined to break through enemy pressure.</p>
+      </article>
+      <article class="info-card">
+        <strong>전투 스테이지 사이의 플랫폼 변주.</strong>
+        <p>After major combat stages, players pass through obstacle routes before reaching the next stage.</p>
+      </article>
+      <article class="info-card">
+        <strong>명확한 전투 목표.</strong>
+        <p>Each combat area shows how many enemies must be defeated. Completing the objective opens the gate to the next area, while Elite Enemies act as key threats.</p>
+      </article>
+    </div>
+  </section>
+
   <section id="media">
     <h2>Screenshots &amp; Media</h2>
 
     <div class="gallery-section">
-      <h3>Capsule Art</h3>
+      <h3>Key Art &amp; Capsule</h3>
       <div class="capsule-gallery">
-        <img src="images/capsule_main.png" alt="Main Capsule" class="capsule-main" onclick="openLightbox(this)">
-        <img src="images/capsule_small.png" alt="Small Capsule" class="capsule-small" onclick="openLightbox(this)">
+        <figure>
+          <img src="images/main_capsule_009.png" alt="Save Princess Torosso key art with title logo" onclick="openLightbox(this)">
+          <figcaption>Title Key Art</figcaption>
+        </figure>
+        <figure>
+          <img src="images/prince_in_hand_with_title_002.png" alt="Save Princess Torosso capsule art with title logo" onclick="openLightbox(this)">
+          <figcaption>Capsule Art</figcaption>
+        </figure>
+        <figure>
+          <img src="images/title_005.png" alt="Save Princess Torosso title capsule art" onclick="openLightbox(this)">
+          <figcaption>Title Capsule Art</figcaption>
+        </figure>
       </div>
     </div>
 
     <div class="gallery-section">
-      <h3>In-Game Screenshots</h3>
-      <p style="color:var(--text-muted); margin-bottom:8px;">Click to enlarge. All screenshots are 1920&times;1080.</p>
+      <h3>Magic Combat</h3>
       <div class="gallery">
-        <img src="images/combat_01_lightning.jpg" alt="Combat - Lightning Magic" onclick="openLightbox(this)">
-        <img src="images/combat_02_ice.jpg" alt="Combat - Ice Magic" onclick="openLightbox(this)">
-        <img src="images/combat_03_dragon_flight.jpg" alt="Combat - Dragon Flight" onclick="openLightbox(this)">
-        <img src="images/boss_01_darkknight.jpg" alt="Boss - Dark Knight" onclick="openLightbox(this)">
-        <img src="images/platform_01_bridge.jpg" alt="Platform - Bridge" onclick="openLightbox(this)">
-        <img src="images/platform_02_cannonball_slope.jpg" alt="Platform - Cannonball Slope" onclick="openLightbox(this)">
+        <figure>
+          <img src="../assets/screen-combat-ice.jpg" alt="The mage casts magic against enemies in an ice arena" onclick="openLightbox(this)">
+          <figcaption>Ranged Magic Combat</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/screen-spell-aoe.jpg" alt="Area magic falls across the battlefield" onclick="openLightbox(this)">
+          <figcaption>AOE / Area Magic</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/screen-spell-shield.jpg" alt="Shield magic protects the player during a fight" onclick="openLightbox(this)">
+          <figcaption>Shield / Defensive Magic</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/screen-magic-field.jpg" alt="Summon magic assists in a field battle" onclick="openLightbox(this)">
+          <figcaption>Summon / Support Magic</figcaption>
+        </figure>
       </div>
     </div>
 
     <div class="gallery-section">
-      <h3>Gameplay GIFs</h3>
+      <h3>Stage Design</h3>
       <div class="gallery">
-        <img src="images/combat_magic.gif" alt="Magic Combat Gameplay">
-        <img src="images/platform_cannonball.gif" alt="Platform Cannonball Gameplay">
-        <img src="images/dragon_flight.gif" alt="Dragon Flight Gameplay">
+        <figure>
+          <img src="../assets/screen-stage-horse-bridge.jpg" alt="The player rides a horse across a bridge route" onclick="openLightbox(this)">
+          <figcaption>Horse Bridge Route</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/screen-dragon-flight.jpg" alt="The player rides a dragon through aerial combat" onclick="openLightbox(this)">
+          <figcaption>Dragon Flight Combat</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/screen-stage-ladder.jpg" alt="The player crosses ladders and cliffside obstacles" onclick="openLightbox(this)">
+          <figcaption>Ladder Route</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/screen-obstacle-barrels.jpg" alt="The player climbs while barrels fall from above" onclick="openLightbox(this)">
+          <figcaption>Falling Barrels</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/screen-obstacle-balls.jpg" alt="The player avoids rolling cannonballs across a corridor" onclick="openLightbox(this)">
+          <figcaption>Rolling Cannonballs</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/screen-stage-beams.jpg" alt="The player moves through a wooden obstacle path" onclick="openLightbox(this)">
+          <figcaption>Obstacle Route</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/screen-stage-slippery-stairs.jpg" alt="The player climbs a long slippery stairway" onclick="openLightbox(this)">
+          <figcaption>Slippery Stairs</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/screen-platform-bridge.jpg" alt="A wide platform route with many obstacles" onclick="openLightbox(this)">
+          <figcaption>Many Obstacles</figcaption>
+        </figure>
       </div>
     </div>
 
     <div class="gallery-section">
       <h3>Trailer</h3>
-      <p style="color:var(--text-muted);">Coming soon</p>
-      <!-- <iframe width="560" height="315" src="YOUTUBE_EMBED_URL" frameborder="0" allowfullscreen></iframe> -->
+      <p style="color:var(--text-muted);">Coming soon.</p>
     </div>
   </section>
 
-  <!-- Logos -->
   <section id="logos">
     <h2>Logos &amp; Branding</h2>
-    <p style="color:var(--text-muted); margin-bottom:16px;">All logos are provided with transparent backgrounds. Right-click to save.</p>
+    <p style="color:var(--text-muted); margin-bottom:16px;">All logos are provided with transparent backgrounds. They may be used for editorial and promotional coverage with credit to Kokopazu Studio.</p>
 
     <h3>Studio Logo</h3>
     <div class="logos-grid">
       <div class="logo-item">
-        <img src="images/logo_kokopazu.png" alt="Kokopazu Studio Logo (EN)">
+        <img src="images/logo_kokopazu.png" alt="Kokopazu Studio Logo">
         <p>English</p>
       </div>
       <div class="logo-item">
-        <img src="images/logo_kokopazu_kor.png" alt="Kokopazu Studio Logo (KR)">
+        <img src="images/logo_kokopazu_kor.png" alt="Kokopazu Studio Korean Logo">
         <p>Korean</p>
       </div>
       <div class="logo-item dark">
-        <img src="images/logo_kokopazu.png" alt="Kokopazu Studio Logo on dark">
-        <p>On dark background</p>
+        <img src="images/logo_kokopazu.png" alt="Kokopazu Studio Logo on dark background">
+        <p>Dark background</p>
       </div>
     </div>
 
@@ -413,100 +602,98 @@
         <p>Game Logo</p>
       </div>
       <div class="logo-item dark">
-        <img src="images/logo_torosso.png" alt="Save Princess Torosso Logo on dark">
-        <p>On dark background</p>
+        <img src="images/logo_torosso.png" alt="Save Princess Torosso Logo on dark background">
+        <p>Dark background</p>
       </div>
     </div>
   </section>
 
-  <!-- Press Release -->
   <section id="press-release">
     <h2>Press Release</h2>
-    <div class="press-release">
-      <h3>1인 인디 개발자의 판타지 액션 RPG "Save Princess Torosso" 2026년 상반기 출시</h3>
-      <p class="date">2026년 | Kokopazu Studio</p>
+    <article class="press-release">
+      <h3>1인 인디 개발자의 마법 액션 RPG "Save Princess Torosso", 2026년 7월 Steam 출시 예정</h3>
+      <p class="date">2026 | Kokopazu Studio</p>
 
-      <p><strong>대한민국</strong> &mdash; 1인 인디 스튜디오 Kokopazu(코코파즈)가 액션 &amp; 플랫폼 RPG <em>Save Princess Torosso</em>를 2026년 상반기 STOVE를 통해 출시한다. Steam 출시도 순차적으로 진행될 예정이다.</p>
+      <p><strong>대한민국</strong> - 1인 인디 스튜디오 Kokopazu Studio가 개발 중인 <em>Save Princess Torosso</em>의 Steam 상점 페이지가 공개되었습니다. 게임은 2026년 7월 PC Windows / Steam 출시를 목표로 하고 있으며, 출시 후 일주일간 할인도 예정되어 있습니다.</p>
 
-      <p><em>Save Princess Torosso</em>는 판타지 세계를 배경으로, 칼이 아닌 마법만으로 전투하는 원거리 전투 시스템과 절벽 타기, 무너지는 다리, 드래곤 비행 등 다양한 플랫폼 장애물을 결합한 액션 RPG다. 2~3시간의 플레이 타임 안에 밀도 높은 모험을 담아냈다.</p>
+      <p><em>Save Princess Torosso</em>는 저주받은 감옥섬에 갇힌 공주를 구하기 위해 빛의 마법사가 되어 앞에 주어진 난관을 해쳐나가는 게임입니다. 장비 조합, 스킬트리, 빌드 연구에 대한 고민없이, 시전하고, 돌파하는 플레이 자체에 집중합니다.</p>
 
-      <div class="quote">
-        "복잡한 장비 조합이나 빌드 트리 없이, 끊김 없이 몰입할 수 있는 게임을 만들고 싶었습니다. 아이템과 스킬 카드는 랜덤으로 획득하니 고민할 필요 없이 바로 모험에 집중할 수 있습니다. RPG의 성장감과 플랫폼 액션의 긴장감을 동시에 즐겨보세요."<br>
-        <span style="color:var(--text);">&mdash; Keon, Kokopazu Studio</span>
-      </div>
+      <p><strong>개발 방향:</strong> 복잡한 메뉴와 빌드 연구보다, 전투와 이동의 흐름을 빠르게 이어가는 구조를 목표로 합니다. 검 대신 마법을 쓰고, 전투 사이에는 장애물과 비행, 이동 과제를 지나 다음 장면으로 이어집니다.</p>
 
       <p><strong>주요 특징:</strong></p>
       <ul class="features">
-        <li>원거리 마법 전투 시스템 &mdash; No Swords. Only Spells.</li>
-        <li>다양한 플랫폼 장애물 (절벽 타기, 무너지는 다리, 드래곤 비행 등)</li>
-        <li>판타지 세계관과 공주 구출 스토리</li>
-        <li>38종 이상의 몬스터</li>
-        <li>7개 언어 지원 (한국어, 영어, 일본어, 중국어, 스페인어, 인도네시아어, 포르투갈어)</li>
+        <li>근접 무기 없이 투사체, 광역, 소환, 방어막 계열 마법으로 싸우는 전투.</li>
+        <li>전투 중 얻는 스킬 카드로 새로운 능력 또는 기존 능력의 강화를 획득.</li>
+        <li>전투 스테이지 사이마다 수많은 장애물을 돌파하는 플랫폼 구간.</li>
+        <li>말, 드래곤, 사다리, 대포알, 배럴, 미끄러운 계단 등으로 달라지는 이동 리듬.</li>
+        <li>2-3시간 완결형 RPG 모험과 11개 언어 지원.</li>
       </ul>
 
-      <p style="margin-top:24px">가격은 &#8361;15,000 / $13.99이며, STOVE 출시 후 Steam에서도 판매를 개시할 예정이다.</p>
-
-      <p>자세한 정보와 에셋은 본 프레스킷 페이지에서 확인할 수 있다.</p>
-    </div>
+      <p style="margin-top:24px">Steam 상점 페이지: <a href="https://store.steampowered.com/app/4603700/Save_Princess_Torosso/" target="_blank" rel="noopener">https://store.steampowered.com/app/4603700/Save_Princess_Torosso/</a></p>
+    </article>
   </section>
 
-  <!-- Contact -->
   <section id="contact">
     <h2>Contact</h2>
     <div class="contact-grid">
       <div class="contact-card">
         <div class="label">Email</div>
-        <a href="mailto:contact@kokopazu.com">contact@kokopazu.com</a>
+        <a href="mailto:contact@kokopazu.com">contact@kokopazu.com</a><br>
+        <a href="mailto:kokopazustudio@gmail.com">kokopazustudio@gmail.com</a>
       </div>
       <div class="contact-card">
         <div class="label">Website</div>
-        <a href="https://www.kokopazu.com" target="_blank">www.kokopazu.com</a>
-      </div>
-      <div class="contact-card">
-        <div class="label">X (Twitter)</div>
-        <a href="https://x.com/kokopazustudio" target="_blank">@kokopazustudio</a>
-      </div>
-      <div class="contact-card">
-        <div class="label">YouTube</div>
-        <a href="https://youtube.com/@kokopazustudio" target="_blank">@kokopazustudio</a>
-      </div>
-      <div class="contact-card">
-        <div class="label">Discord</div>
-        <a href="https://discord.com/channels/1486192332025106656/1486192333069484114" target="_blank">Kokopazu Studio Discord</a>
+        <a href="https://www.kokopazu.com" target="_blank" rel="noopener">www.kokopazu.com</a>
       </div>
       <div class="contact-card">
         <div class="label">Steam</div>
-        <a href="https://store.steampowered.com/app/4603700" target="_blank">App ID: 4603700</a>
+        <a href="https://store.steampowered.com/app/4603700/Save_Princess_Torosso/" target="_blank" rel="noopener">Save Princess Torosso</a>
+      </div>
+      <div class="contact-card">
+        <div class="label">Facebook</div>
+        <a href="https://www.facebook.com/profile.php?id=61575441099297" target="_blank" rel="noopener">Kokopazu Studio</a>
+      </div>
+      <div class="contact-card">
+        <div class="label">X</div>
+        <a href="https://x.com/kokopazustudio" target="_blank" rel="noopener">@kokopazustudio</a>
+      </div>
+      <div class="contact-card">
+        <div class="label">YouTube</div>
+        <a href="https://www.youtube.com/@kokopazustudio" target="_blank" rel="noopener">@kokopazustudio</a>
+      </div>
+      <div class="contact-card">
+        <div class="label">Discord</div>
+        <a href="https://discord.gg/b3eH4RECWr" target="_blank" rel="noopener">Kokopazu Studio Discord</a>
       </div>
     </div>
   </section>
 
-</div>
+</main>
 
-<!-- Footer -->
-<footer style="text-align:center; padding:40px 20px; color:var(--text-muted); font-size:0.85rem; border-top:1px solid var(--border);">
+<footer>
   &copy; 2026 Kokopazu Studio. All rights reserved.<br>
-  All images and media on this page may be used for editorial and promotional purposes with credit to Kokopazu Studio.
+  Images and media on this page may be used for editorial and promotional purposes with credit to Kokopazu Studio.
 </footer>
 
-<!-- Lightbox -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <img id="lightbox-img" src="" alt="">
 </div>
 
 <script>
 function openLightbox(el) {
-  const lb = document.getElementById('lightbox');
-  const img = document.getElementById('lightbox-img');
-  img.src = el.src;
-  img.alt = el.alt;
-  lb.classList.add('active');
+  const lightbox = document.getElementById("lightbox");
+  const image = document.getElementById("lightbox-img");
+  image.src = el.src;
+  image.alt = el.alt;
+  lightbox.classList.add("active");
 }
+
 function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('active');
+  document.getElementById("lightbox").classList.remove("active");
 }
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeLightbox();
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape") closeLightbox();
 });
 </script>
 

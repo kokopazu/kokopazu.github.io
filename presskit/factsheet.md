@@ -1,32 +1,36 @@
 # Save Princess Torosso - Factsheet
 
-- **Developer**: Kokopazu Studio (코코파즈) — 1-person indie studio
-- **Location**: South Korea
-- **Genre**: Action & Platform RPG
-- **Platform**: STOVE, Steam (planned)
-- **Price**: ₩15,000 / $13.99
-- **Playtime**: 2–3 hours
-- **Languages**: Korean, English, Japanese, Chinese, Spanish, Indonesian, Portuguese (7)
-- **Release**: 2026 H1 (STOVE first, Steam second)
-- **Steam**: [App ID: 4603700](https://store.steampowered.com/app/4603700)
+- **Developer**: Kokopazu Studio, a 1-person indie studio in South Korea
+- **Genre**: Magic Action RPG & Platform Game
+- **Platform**: PC Windows / Steam
+- **Release**: July 2026 (planned)
+- **Discount**: Launch-week discount planned
+- **Price**: TBA
+- **Playtime**: 2-3 hours
+- **Languages**: 11 languages supported
+- **Steam**: [Save Princess Torosso](https://store.steampowered.com/app/4603700/Save_Princess_Torosso/)
 - **Website**: https://www.kokopazu.com
-- **Discord**: https://discord.com/channels/1486192332025106656/1486192333069484114
-- **YouTube**: @kokopazustudio
-- **X (Twitter)**: [@kokopazustudio](https://x.com/kokopazustudio)
+- **Facebook**: https://www.facebook.com/profile.php?id=61575441099297
+- **X**: [@kokopazustudio](https://x.com/kokopazustudio)
+- **YouTube**: [@kokopazustudio](https://www.youtube.com/@kokopazustudio)
+- **Discord**: https://discord.gg/b3eH4RECWr
 - **Email**: contact@kokopazu.com
+- **Email**: kokopazustudio@gmail.com
 
 ## About the Game
 
-Defeat monsters, overcome obstacles, and save the princess.
+Want to rescue a princess?
 
-An action RPG set in a fantasy world where you fight only with ranged magic and conquer diverse platforming challenges between chapters. No complex equipment crafting or build trees — just pick up random loot and keep moving forward.
+*Save Princess Torosso* is a game where you become a light mage to overcome the obstacles ahead and rescue the princess trapped on a cursed prison island.
+
+Without worrying about gear builds, skill trees, or build research, you focus on casting and pushing through. The game is built as a 2-3 hour complete RPG adventure where combat and platforming flow continuously from start to finish.
 
 ## Key Features
 
-- Ranged magic combat system — No Swords. Only Spells.
-- 4 spell types: Projectile, AOE, Summon, Shield — collect duplicate cards to power up automatically
-- 9 chapters, 25 stages — each chapter connected by unique cliff platforming sections
-- No equipment crafting, no build trees — random stat items and skill card drops keep the action flowing
-- 38+ unique monsters across grass, volcano, ice, and desert themed worlds
-- Fantasy storyline: rescue Princess Torosso from the cursed prison island
-- 7 language support (KO, EN, JA, ZH, ES, ID, PT)
+- Magic-only combat with no melee weapons.
+- Projectile, AOE, Summon, and Shield spell roles used during combat flow.
+- Skill cards grant new abilities or strengthen existing magic during battle.
+- Between combat stages, players break through platforming routes and movement challenges.
+- Horse riding, dragon flight, ladders, falling barrels, rolling cannonballs, slippery stairs, and other obstacle sections change the rhythm between fights.
+- Clear combat objectives open the path to the next area once the target enemy count is defeated.
+- Coming to Steam in July 2026 with a launch-week discount planned.
