@@ -6,6 +6,7 @@
 <title>{{ page_title }}</title>
 <meta name="description" content="{{ page_description }}">
 <meta name="author" content="{{ f.studio.name_en }}">
+{% if page_kind == 'presskit' and not f.presskit.public %}<meta name="robots" content="noindex">{% endif %}
 <link rel="canonical" href="{{ canonical }}">
 {% if alt_ko %}<link rel="alternate" hreflang="ko" href="{{ alt_ko }}">{% endif %}
 {% if alt_en %}<link rel="alternate" hreflang="en" href="{{ alt_en }}">{% endif %}
@@ -63,7 +64,7 @@
     <a href="{{ home_url }}#traverse">{{ c.nav.traverse }}</a>
     <a href="{{ home_url }}#story">{{ c.nav.story }}</a>
     <a href="{{ home_url }}#demo">{{ c.nav.demo }}</a>
-    <a href="/presskit/">{{ c.nav.press }}</a>
+    {% if f.presskit.public %}<a href="/presskit/">{{ c.nav.press }}</a>{% endif %}
   </nav>
   <div class="tools">
     <div class="lang" aria-label="Language">
@@ -96,7 +97,7 @@
       <a href="{{ f.links.youtube }}" target="_blank" rel="noopener">{{ c.footer.links.youtube }}</a>
       <a href="{{ f.links.x }}" target="_blank" rel="noopener">{{ c.footer.links.x }}</a>
       <a href="{{ f.links.facebook }}" target="_blank" rel="noopener">{{ c.footer.links.facebook }}</a>
-      <a href="/presskit/">{{ c.footer.links.presskit }}</a>
+      {% if f.presskit.public %}<a href="/presskit/">{{ c.footer.links.presskit }}</a>{% endif %}
     </nav>
   </div>
 </footer>

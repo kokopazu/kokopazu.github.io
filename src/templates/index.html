@@ -17,7 +17,6 @@
       {% endif %}
     </div>
     <h1><picture><source type="image/webp" srcset="/assets/logo/title-gold.webp"><img class="logo-title" src="/assets/logo/title-gold.png" alt="{{ c.hero.logo_alt }}" width="1057" height="742" fetchpriority="high"></picture></h1>
-    <p class="hook {{ 'display-ko' if c.lang == 'ko' else 'display-en' }}">{{ c.hero.hook }}</p>
     <p class="sub">{{ c.hero.sub_1 }}<br>{{ c.hero.sub_2 }}</p>
     <div class="cta">
       {% if released %}
@@ -191,13 +190,24 @@
       <dl>
         <dt>{{ c.studio.developer_label }}</dt><dd>{{ c.studio.developer }}</dd>
         <dt>{{ c.studio.contact_label }}</dt><dd><a href="mailto:{{ f.studio.email }}">{{ f.studio.email }}</a></dd>
-        <dt>{{ c.studio.press_label }}</dt><dd>{{ c.studio.press_body }}</dd>
+        {% if f.presskit.public %}<dt>{{ c.studio.press_label }}</dt><dd>{{ c.studio.press_body }}</dd>{% endif %}
       </dl>
       <div class="btns">
-        <a class="btn" href="/presskit/">{{ c.studio.cta_presskit }}</a>
+        {% if f.presskit.public %}<a class="btn" href="/presskit/">{{ c.studio.cta_presskit }}</a>{% endif %}
         <a class="btn" href="mailto:{{ f.studio.email }}">{{ c.studio.cta_email }}</a>
       </div>
     </aside>
   </div>
 </section>
+{% endblock %}
+
+{% block head %}
+<script>
+/* 히어로 타이틀 인트로 조건: site.js 의 히어로 영상과 같은 조건. 통과하면 title-reveal.js 가 재생할 때까지 로고를 숨긴다. */
+(function(){try{var d=document,h=d.documentElement,c=navigator.connection||{};if(innerWidth<=720||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)||c.saveData||/(^|-)2g$|^3g$/.test(c.effectiveType||''))return;h.classList.add('tr-pending');if(d.hidden){h.classList.add('tr-wait');d.addEventListener('visibilitychange',function v(){if(!d.hidden){h.classList.remove('tr-wait');d.removeEventListener('visibilitychange',v)}})}}catch(e){}})();
+</script>
+{% endblock %}
+
+{% block scripts %}
+<script src="/assets/js/title-reveal.js?v={{ build_stamp }}" defer></script>
 {% endblock %}

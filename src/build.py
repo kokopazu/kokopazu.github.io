@@ -2,8 +2,9 @@
 """
 kokopazu.com static site builder.
 
-  python src/build.py            # full build (pages + media + presskit zip)
-  python src/build.py --pages    # pages only (fast)
+  python src/build.py               # full build (pages + media + presskit zip)
+  python src/build.py --pages       # pages only (fast)
+  python src/build.py --pages --zip # pages + presskit zip from the existing assets (no media re-encode)
 
 Inputs : src/facts.json, src/content/{ko,en}.json, src/templates/*, src/static/*, src/media.json
 Outputs: repo root (index.html, en/, presskit/, demo/, wishlist/, discord/, 404.html, sitemap.xml, robots.txt,
@@ -18,14 +19,24 @@ Image.MAX_IMAGE_PIXELS = None
 SRC = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(SRC)
 PAGES_ONLY = "--pages" in sys.argv
+ZIP_FROM_ASSETS = "--zip" in sys.argv
 
 def load(p):
     with open(p, encoding="utf-8") as f:
         return json.load(f)
 
+def fill_release(obj, value):
+    # "{release}" in copy text -> facts.json release.display_ko / display_en
+    if isinstance(obj, dict): return {k: fill_release(v, value) for k, v in obj.items()}
+    if isinstance(obj, list): return [fill_release(v, value) for v in obj]
+    if isinstance(obj, str): return obj.replace("{release}", value)
+    return obj
+
 F = load(os.path.join(SRC, "facts.json"))
-KO = load(os.path.join(SRC, "content", "ko.json"))
-EN = load(os.path.join(SRC, "content", "en.json"))
+KO = fill_release(load(os.path.join(SRC, "content", "ko.json")), F["release"]["display_ko"])
+EN = fill_release(load(os.path.join(SRC, "content", "en.json")), F["release"]["display_en"])
+for _lang in ("ko", "en"):
+    F["seo"]["description_" + _lang] = fill_release(F["seo"]["description_" + _lang], F["release"]["display_" + _lang])
 MEDIA = load(os.path.join(SRC, "media.json"))
 RELEASED = F["release"]["state"] == "released"
 STAMP = datetime.date.today().strftime("%Y%m%d")
@@ -188,7 +199,7 @@ def jsonld(lang):
             "author": {"@type": "Organization", "name": F["studio"]["name_en"]}, "publisher": {"@type": "Organization", "name": F["studio"]["name_en"]},
             "sameAs": [F["links"]["steam"]]}
     if RELEASED: game["datePublished"] = F["release"].get("exact_pdt") or F["release"]["display_iso"]
-    else: game["releaseNotes"] = ("2026년 11월 Steam 출시 예정, 데모 플레이 가능" if lang == "ko" else "Coming to Steam in November 2026. Free demo available now.")
+    else: game["releaseNotes"] = (f"{F['release']['display_ko']} Steam 출시 예정, 데모 플레이 가능" if lang == "ko" else f"Coming to Steam in {F['release']['display_en']}. Free demo available now.")
     if F["price"]["show"]:
         game["offers"] = {"@type": "Offer", "price": str(F["price"]["usd"]), "priceCurrency": "USD", "url": F["links"]["steam"],
                           "availability": "https://schema.org/InStock" if RELEASED else "https://schema.org/PreOrder"}
@@ -228,7 +239,7 @@ def render_404():
 def write_meta_files():
     today = datetime.date.today().isoformat()
     site = F["links"]["site"]
-    urls = [("/", "weekly", "1.0"), ("/en/", "weekly", "1.0"), ("/presskit/", "monthly", "0.6")]
+    urls = [("/", "weekly", "1.0"), ("/en/", "weekly", "1.0")] + ([("/presskit/", "monthly", "0.6")] if F["presskit"]["public"] else [])
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
     for u, cf, pr in urls:
         sm += f"  <url>\n    <loc>{site}{u}</loc>\n"
@@ -252,7 +263,7 @@ def factsheet_text():
          f"Steam: {F['links']['steam']}", f"Website: {F['links']['site']}", f"Email: {F['studio']['email']}",
          f"Discord (EN): {F['links']['discord_en']}", f"Discord (KO): {F['links']['discord_ko']}",
          f"YouTube: {F['links']['youtube']}", f"X: {F['links']['x']}", f"Facebook: {F['links']['facebook']}", "",
-         "About", EN["hero"]["hook"] + " " + EN["hero"]["sub_1"] + " " + EN["hero"]["sub_2"], EN["loop"]["lead"], EN["magic"]["lead"], EN["traverse"]["lead"], EN["leaderboard"]["body"], "",
+         "About", EN["hero"]["sub_1"] + " " + EN["hero"]["sub_2"], EN["loop"]["lead"], EN["magic"]["lead"], EN["traverse"]["lead"], EN["leaderboard"]["body"], "",
          "Story", *EN["story"]["p"], "", "Images and media may be used for editorial and promotional purposes with credit to Kokopazu Studio."]
     return "\n".join(x for x in L if x is not None)
 
@@ -271,7 +282,7 @@ def main():
         shots = [{"label": i["label"], "file": i["file"], "thumb": os.path.splitext(i["file"])[0] + "-thumb.jpg"} for i in MEDIA["presskit"]["screenshots"]]
     copy_static()
     render_index("ko"); render_index("en"); render_presskit(keyart, shots); render_redirects(); render_404(); write_meta_files()
-    if not PAGES_ONLY:
+    if not PAGES_ONLY or ZIP_FROM_ASSETS:
         build_presskit_zip(keyart, shots, factsheet_text())
     write("presskit/factsheet.txt", factsheet_text())
     print("== done ==")

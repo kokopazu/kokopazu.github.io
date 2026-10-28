@@ -1,14 +1,12 @@
 {
   "_comment": "kokopazu.com 단일 원본. 날짜·가격·링크·언어·이메일은 여기서만 수정한다. 빌드(src/build.py)가 모든 페이지에 주입한다.",
-  "_updated": "2026-08-21",
+  "_updated": "2026-10-28",
 
   "game": {
     "title": "Save Princess Torosso",
     "title_ko": "Save Princess Torosso",
     "genre_ko": "판타지 3D 액션 어드벤처",
     "genre_en": "Fantasy 3D Action Adventure",
-    "hook_ko": "검은 없습니다. 오직 마법뿐.",
-    "hook_en": "No swords. Only spells.",
     "steam_appid": 4603700,
     "demo_appid": 4744890,
     "engine": "Unity 6 URP"
@@ -29,12 +27,12 @@
 
   "release": {
     "state": "coming_soon",
-    "display_ko": "2026년 11월",
-    "display_en": "November 2026",
-    "display_iso": "2026-11",
+    "display_ko": "2026년 12월",
+    "display_en": "December 2026",
+    "display_iso": "2026-12",
     "exact_kst": null,
     "exact_pdt": null,
-    "note": "state: coming_soon | released. 정확 일자가 정해지면 exact_kst/exact_pdt에 'YYYY-MM-DD HH:mm' 입력. KO 문구는 KST, EN 문구는 PDT 기준으로 표기."
+    "note": "state: coming_soon | released. 정확 일자가 정해지면 exact_kst/exact_pdt에 'YYYY-MM-DD HH:mm' 입력. KO 문구는 KST, EN 문구는 PDT 기준으로 표기. content/*.json 과 seo 문구의 {release} 는 빌드 때 display_ko/display_en 으로 바뀐다."
   },
 
   "launch_discount": {
@@ -110,6 +108,11 @@
     "presskit": "https://kokopazu.com/presskit/"
   },
 
+  "presskit": {
+    "public": false,
+    "note": "false 면 헤더·푸터·스튜디오 카드의 프레스킷 링크와 안내 줄을 숨기고, sitemap 에서 빼고, 프레스킷 페이지에 noindex 를 붙인다. 페이지 자체(/presskit/)는 주소로 계속 열린다. 완성되면 true."
+  },
+
   "utm": {
     "source": "website",
     "medium": "referral",
@@ -132,8 +135,8 @@
   "seo": {
     "title_ko": "Save Princess Torosso — 판타지 3D 액션 어드벤처 | Kokopazu Studio",
     "title_en": "Save Princess Torosso — Fantasy 3D Action Adventure | Kokopazu Studio",
-    "description_ko": "검은 없습니다. 오직 마법뿐. 원거리 마법 전투, 스킬 카드 성장, 3D 플랫폼 장애물 구간, 클리어 타임 순위표가 결합된 판타지 3D 액션 어드벤처. 2026년 11월 Steam 출시 예정, 데모 플레이 가능.",
-    "description_en": "No swords. Only spells. A fantasy 3D action adventure with ranged magic combat, skill-card progression, platforming obstacles, and a clear-time leaderboard. Demo out now. Coming to Steam in November 2026.",
+    "description_ko": "원거리 마법 전투, 스킬 카드 성장, 3D 플랫폼 장애물 구간, 클리어 타임 순위표가 결합된 판타지 3D 액션 어드벤처. {release} Steam 출시 예정, 데모 플레이 가능.",
+    "description_en": "A fantasy 3D action adventure with ranged magic combat, skill-card progression, platforming obstacles, and a clear-time leaderboard. Demo out now. Coming to Steam in {release}.",
     "og_image": "https://kokopazu.com/assets/og-image.jpg",
     "canonical_ko": "https://kokopazu.com/",
     "canonical_en": "https://kokopazu.com/en/"

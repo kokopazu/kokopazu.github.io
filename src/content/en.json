@@ -13,10 +13,9 @@
 
   "hero": {
     "chip_demo": "Free demo on Steam",
-    "chip_release": "Coming November 2026",
+    "chip_release": "Coming {release}",
     "chip_released": "Out now on Steam",
     "logo_alt": "Save Princess Torosso",
-    "hook": "No swords. Only spells.",
     "sub_1": "A fantasy 3D action adventure you can jump into instantly — no build homework, just cast, dodge, and push forward.",
     "sub_2": "Become a wizard of light and rescue Princess Torosso from the prison island.",
     "cta_wishlist": "Wishlist on Steam",
@@ -114,10 +113,10 @@
 
   "release": {
     "kicker": "Release",
-    "h2": "Coming to Steam in November 2026.",
+    "h2": "Coming to Steam in {release}.",
     "h2_released": "Available now on Steam.",
     "rows": {
-      "release": "Release", "release_v": "November 2026 (planned)", "release_v_released": "Released",
+      "release": "Release", "release_v": "{release} (planned)", "release_v_released": "Released",
       "platform": "Platform", "platform_v": "PC Windows · Steam first, then STOVE",
       "price": "Price",
       "languages": "Languages", "languages_prefix": "11 languages — ",

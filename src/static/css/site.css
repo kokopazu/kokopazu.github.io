@@ -78,9 +78,17 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15}
 .chip{display:inline-flex;align-items:center;gap:.5rem;padding:.38rem .7rem;border:1px solid var(--line2);border-radius:999px;background:rgba(8,9,13,.55);color:var(--gold2);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;backdrop-filter:blur(6px)}
 .chip.live::before{content:"";width:8px;height:8px;border-radius:50%;background:#7ee08a;box-shadow:0 0 14px rgba(126,224,138,.9)}
 .logo-title{width:min(500px,76vw);height:auto;filter:drop-shadow(0 12px 40px rgba(0,0,0,.7)) drop-shadow(0 0 34px rgba(240,185,74,.22))}
-.hook{margin:1.5rem 0 .5rem;font-size:clamp(1.5rem,2.8vw,2.2rem);color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.6)}
-.hook.display-en{font-weight:600;letter-spacing:.04em}
-.sub{margin:.4rem 0 0;max-width:640px;color:var(--muted);font-size:1.08rem;text-shadow:0 1px 12px rgba(0,0,0,.6)}
+/* 히어로 타이틀 인트로 (assets/js/title-reveal.js): tr-pending = 시작 대기(1.5초 안에 시작 못 하면 정지 로고), tr-run = 재생 중 */
+.hero h1{position:relative}
+.tr-pending .hero .logo-title{opacity:0;animation:tr-show .01s linear 1.5s forwards}
+.tr-pending.tr-wait .hero .logo-title{animation:none}
+.tr-run .hero .logo-title{opacity:0;transition:opacity .55s ease}
+.tr-run.tr-in .hero .logo-title{opacity:1}
+.tr-canvas{position:absolute;inset:0;z-index:-1;width:100%;height:100%;pointer-events:none;mix-blend-mode:screen}
+.tr-glint{position:absolute;pointer-events:none;-webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;background:linear-gradient(105deg,rgba(255,246,214,0) 42%,rgba(255,246,214,.85) 50%,rgba(255,246,214,0) 58%) 100% 0/300% 100% no-repeat;mix-blend-mode:screen;animation:tr-glint .8s cubic-bezier(.4,0,.6,1) forwards}
+@keyframes tr-show{to{opacity:1}}
+@keyframes tr-glint{to{background-position:0 0}}
+.sub{margin:1.5rem 0 0;max-width:640px;color:var(--muted);font-size:1.08rem;text-shadow:0 1px 12px rgba(0,0,0,.6)}
 .cta{display:flex;flex-wrap:wrap;gap:.8rem;margin:1.8rem 0 0}
 .meta{display:flex;flex-wrap:wrap;gap:.5rem 1.1rem;margin:1.6rem 0 0;padding:0;list-style:none;color:var(--muted);font-size:.86rem}
 .meta li{display:inline-flex;align-items:center;gap:.5rem}

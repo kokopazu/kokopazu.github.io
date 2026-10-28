@@ -13,10 +13,9 @@
 
   "hero": {
     "chip_demo": "Steam 데모 플레이 가능",
-    "chip_release": "2026년 11월 출시 예정",
+    "chip_release": "{release} 출시 예정",
     "chip_released": "Steam 출시 중",
     "logo_alt": "Save Princess Torosso",
-    "hook": "검은 없습니다. 오직 마법뿐.",
     "sub_1": "빌드 고민 없이 바로 쏘고, 피하고, 돌파하는 판타지 3D 액션 어드벤처.",
     "sub_2": "빛의 마법사가 되어 감옥섬에 갇힌 토로소 공주를 구하세요.",
     "cta_wishlist": "Steam 위시리스트 추가",
@@ -114,10 +113,10 @@
 
   "release": {
     "kicker": "Release",
-    "h2": "2026년 11월, Steam에서 만나요.",
+    "h2": "{release}, Steam에서 만나요.",
     "h2_released": "Steam에서 지금 플레이할 수 있습니다.",
     "rows": {
-      "release": "출시", "release_v": "2026년 11월 예정", "release_v_released": "출시됨",
+      "release": "출시", "release_v": "{release} 예정", "release_v_released": "출시됨",
       "platform": "플랫폼", "platform_v": "PC Windows · Steam(1차) → STOVE(2차)",
       "price": "가격",
       "languages": "언어", "languages_prefix": "11개 언어 — ",
