@@ -45,7 +45,7 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15}
 .skip-link{position:absolute;left:1rem;top:-5rem;z-index:200;background:var(--gold);color:var(--gold-ink);padding:.6rem .8rem;border-radius:6px}
 .skip-link:focus{top:1rem}
 :focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn{transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn{transition:none}.hero h1::after{display:none}}
 
 /* ---------- language banner ---------- */
 .lang-banner{position:fixed;inset:auto 0 0 0;z-index:95;display:flex;align-items:center;justify-content:center;gap:1rem;padding:.6rem 3rem .6rem 1rem;background:rgba(26,18,6,.96);border-top:1px solid var(--line2);color:var(--gold2);font-weight:700;font-size:.92rem}
@@ -88,6 +88,11 @@ h1,h2,h3,h4{margin:0;font-weight:600;line-height:1.15}
 .tr-glint{position:absolute;pointer-events:none;-webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;background:linear-gradient(105deg,rgba(255,246,214,0) 42%,rgba(255,246,214,.85) 50%,rgba(255,246,214,0) 58%) 100% 0/300% 100% no-repeat;mix-blend-mode:screen;animation:tr-glint .8s cubic-bezier(.4,0,.6,1) forwards}
 @keyframes tr-show{to{opacity:1}}
 @keyframes tr-glint{to{background-position:0 0}}
+/* 로고 빛 띠: 8초마다 1초 동안 로고 글자 안으로만 지나간다. 인트로 중에는 숨기고, 히어로가 화면 밖이면(site.js .off-screen) 멈춘다 */
+.hero h1::after{content:"";position:absolute;left:0;top:0;bottom:0;aspect-ratio:1057/742;pointer-events:none;-webkit-mask:url("/assets/logo/title-gold.webp") 0 0/100% 100% no-repeat;mask:url("/assets/logo/title-gold.webp") 0 0/100% 100% no-repeat;background:linear-gradient(105deg,rgba(255,246,214,0) 42%,rgba(255,246,214,.85) 50%,rgba(255,246,214,0) 58%) 100% 0/300% 100% no-repeat;mix-blend-mode:screen;animation:logo-glint 8s linear 1.5s infinite}
+.hero.off-screen h1::after{animation-play-state:paused}
+.tr-pending .hero h1::after,.tr-run .hero h1::after{display:none}
+@keyframes logo-glint{0%{background-position:100% 0;animation-timing-function:cubic-bezier(.4,0,.6,1)}12.5%,100%{background-position:0 0}}
 .sub{margin:1.5rem 0 0;max-width:640px;color:var(--muted);font-size:1.08rem;text-shadow:0 1px 12px rgba(0,0,0,.6)}
 .cta{display:flex;flex-wrap:wrap;gap:.8rem;margin:1.8rem 0 0}
 .meta{display:flex;flex-wrap:wrap;gap:.5rem 1.1rem;margin:1.6rem 0 0;padding:0;list-style:none;color:var(--muted);font-size:.86rem}

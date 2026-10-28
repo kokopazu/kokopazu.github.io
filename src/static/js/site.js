@@ -67,6 +67,12 @@
     reveals.forEach(function (el) { io.observe(el); });
   }
 
+  /* ---- 히어로 로고 빛 띠(site.css): 히어로가 화면 밖이면 일시정지 ---- */
+  var heroEl = document.getElementById('hero');
+  if (heroEl && !reduce && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { heroEl.classList.toggle('off-screen', !es[0].isIntersecting); }).observe(heroEl);
+  }
+
   /* ---- hover clips (desktop pointer only) ---- */
   if (!reduce && window.matchMedia && matchMedia('(hover:hover) and (pointer:fine)').matches) {
     document.querySelectorAll('.card, .tile').forEach(function (el) {
